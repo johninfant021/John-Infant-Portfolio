@@ -1,3 +1,6 @@
+body{
+  margin: 0;
+}
 .navbar-brand{
   font-family: "Dancing Script", cursive;
   font-weight: 500;
