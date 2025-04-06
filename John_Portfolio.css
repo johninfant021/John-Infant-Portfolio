@@ -1,0 +1,61 @@
+.navbar-brand{
+  font-family: "Dancing Script", cursive;
+  font-weight: 500;
+}
+.nav-link{
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+
+}
+.head-name{
+  letter-spacing: 1px;
+  font-family: "Vollkorn", serif;
+}
+.over{
+  font-family: "Aclonica", sans-serif;
+}
+.pro-img{
+  border-radius: 20px;
+  box-shadow: 2px 1px 4px black;
+}
+.head-content{
+  letter-spacing: 1.5px;
+  text-shadow: 1px 0 1px black;
+}
+.body-cont{
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+}
+.body-cont-head{
+  font-family: "Afacad", sans-serif;
+}
+.about-head{
+  text-shadow: 1px 0 1px black;
+}
+.about-content{
+  font-weight: 300;
+  text-align: justify;
+  letter-spacing: 1px;
+  font-family: "Josefin Sans", sans-serif;
+}
+.list-group{
+  margin-left:4vw ;
+}
+.list-group .list-group-item{
+  width: 180px;
+  margin: 5px;
+  border: 1px solid black;
+  box-shadow: 1px 0 0.5px black;
+}
+.list-group .list-group-item:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 2px black;
+  transition: all 0.3s ease-in-out;
+
+}
+.img-fluid{
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
+}
