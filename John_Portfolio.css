@@ -26,13 +26,10 @@ body{
   letter-spacing: 1px;
   font-family: "Vollkorn", serif;
 }
-.home-cont{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  height: 75vh;
 
+#home{
+  height: 75vh;
+  background: linear-gradient(to bottom, white, #DCDCDC);
 }
 .over{
   font-family: "Aclonica", sans-serif;
@@ -74,6 +71,8 @@ body{
   transform: scale(1.1);
   box-shadow: 0 0 2px black;
   transition: all 0.3s ease-in-out;
+  color:white;
+  background-color:#696969;
 
 }
 .img-fluid{
