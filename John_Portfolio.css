@@ -26,6 +26,14 @@ body{
   letter-spacing: 1px;
   font-family: "Vollkorn", serif;
 }
+.home-cont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 75vh;
+
+}
 .over{
   font-family: "Aclonica", sans-serif;
 }
