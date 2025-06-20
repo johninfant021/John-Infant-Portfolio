@@ -17,18 +17,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
-<body style="background-color: whitesmoke;">
-
-<nav class="navbar sticky-top navbar-expand-lg">
+<body style="background-color:#DCDCDC">
+<nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand fs-3" href="#home">Portfolio</a>
-    <!-- Hamburger button -->
+    <!-- Brand -->
+    <a class="navbar-brand fs-3" href="#home">John Infant</a>
+
+    <!-- Toggler Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" 
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
-    <!-- Collapsible nav links -->
+
+    <!-- Navigation Links -->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto fs-5">
         <li class="nav-item">
@@ -38,7 +39,7 @@
           <a class="nav-link text-white" href="#education">Education</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#skils">Skills</a>
+          <a class="nav-link text-white" href="#skills">Skills</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="#projects">Projects</a>
@@ -50,6 +51,7 @@
     </div>
   </div>
 </nav>
+  <div class="body-align">
 <section id="home">
     <div class="px-4 py-5 my-4 text-center">
         <img class="d-block mx-auto mb-4 pro-img" data-aos-easing="ease-in-out" data-aos="zoom-out" src="./FB_IMG_1739981634990.jpg" alt="" width="212" height="197">
@@ -63,70 +65,77 @@
         </div>
       </div>
 </section>
-<section id="about">
-    <div class="my-2">
-        <div class="p-2 text-center">
-          <div class="container py-2">
-            <h1 class="text-body-emphasis about-head over"data-aos="fade-right">About Me</h1>
-            <p class="col-lg-12 mx-auto lead about-content fs-3" data-aos="zoom-out">
-                A highly organized and hardworking individual seeking a
-                responsible role to gain practical experience. Looking for an
-                opportunity with a company that provides challenges and
-                opportunities for personal and professional growth.Motivated
-                and detail-oriented Computer Science graduate with expertise in
-                Full Stack Development, Python, and Database Management.
-                Passionate about solving real-world problems through
-                technology. Seeking an opportunity to apply my skills and gain
-                hands-on experience in a dynamic environment
-            </p>
-          </div>
-        </div>
-      </div>
+<section id="about" class="my-2">
+  <div class="p-2 text-center">
+    <div class="container py-2">
+      <h1 class="text-body-emphasis about-head over" data-aos="fade-right">About Me</h1>
+      <p class="col-lg-12 mx-auto lead about-content fs-3" data-aos="zoom-out">
+        I am a highly organized and hardworking individual, eager to gain practical experience in the tech industry. I am seeking an opportunity with a company that offers challenges and supports both personal and professional growth.
+        <br><br>
+        As a motivated and detail-oriented Computer Science graduate, I have hands-on experience in Full Stack Development, Python, and Database Management. I am passionate about solving real-world problems through technology and look forward to contributing my skills in a dynamic and innovative environment.
+      </p>
+    </div>
+  </div>
 </section>
-<section id="education my-2">
-    <div class="container px-4 py-5" id="featured-3">
-        <h2 class="pb-2 border-bottom over" data-aos="slide-right">Education</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 justify-content-evenly align-items-center">
-          <div class="feature col" data-aos="zoom-in">
-            <h3 class=" fs-4 text-body-emphasis body-cont-head">Kalasalingam University</h3>
-            <h4 class=" fs-4 text-body-emphasis body-cont">Master of Computer Application </h4>
-            <p class="fs-5 body-cont">2024-2026</p>
-          </div>
-          <div class="feature col" data-aos="zoom-in">
-            <h3 class=" fs-4 body-cont-head text-body-emphasis">Rajapalayam Raju’s College </h3>
-            <h4 class=" fs-4 body-cont text-body-emphasis">Bachelor of Computer Science</h4>
-            <p class="fs-5 body-cont">2020-2023 - CGPA: 7.97</p></div>
-          <div class="feature col" data-aos="zoom-in">
-            <h3 class=" fs-4 body-cont-head text-body-emphasis">P.A.C.M Higher Secondary School</h3>
-            <h4 class=" fs-4 body-cont-head text-body-emphasis">Rajapalayam </h4>
-            <p class="fs-5 body-cont">Higher Secondary Education (2020) - 69%</p>
-            <p class="fs-5 body-cont">Secondary School Leaving Certificate (2018) - 86%</p>
-        </div>
-        </div>
+
+<section id="education" class="my-2">
+  <div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 over" data-aos="slide-right">Education</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 justify-content-evenly align-items-center">
+
+      <!-- PG -->
+      <div class="feature col" data-aos="zoom-in">
+        <h3 class="fs-4 text-body-emphasis body-cont-head">Kalasalingam University</h3>
+        <h4 class="fs-4 text-body-emphasis body-cont">Master of Computer Applications</h4>
+        <p class="fs-5 body-cont">2024 – 2026</p>
       </div>
+
+      <!-- UG -->
+      <div class="feature col" data-aos="zoom-in">
+        <h3 class="fs-4 text-body-emphasis body-cont-head">Rajapalayam Raju’s College</h3>
+        <h4 class="fs-4 text-body-emphasis body-cont">Bachelor of Computer Science</h4>
+        <p class="fs-5 body-cont">2020 – 2023 | CGPA: 7.97</p>
+      </div>
+
+      <!-- School -->
+      <div class="feature col" data-aos="zoom-in">
+        <h3 class="fs-4 text-body-emphasis body-cont-head">P.A.C.M Higher Secondary School, Rajapalayam</h3>
+        <h4 class="fs-4 text-body-emphasis body-cont">Higher Secondary Certificate (HSC)</h4>
+        <p class="fs-5 body-cont">2020 – 69%</p>
+        <h4 class="fs-4 text-body-emphasis body-cont mt-3">Secondary School Leaving Certificate (SSLC)</h4>
+        <p class="fs-5 body-cont">2018 – 86%</p>
+      </div>
+
+    </div>
+  </div>
 </section>
-<section id="skils">
+
+<section id="skills">
   <div class="container" id="hanging-icons">
-    <h2 class="pb-2 border-bottom over" data-aos="slide-right">Techinical Skils</h2>
-    <div class="row row-cols-1 row-cols-lg-4 flex-wrap my-5 justify-content-evenly ">
-      <div class="col d-flex align-items-start w-40 justify-content-center">
+    <h2 class="pb-2 over" data-aos="slide-right">Technical Skills</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-5 justify-content-center">
+
+      <!-- Frontend Skills -->
+      <div class="col d-flex justify-content-center">
         <div>
           <h3 class="fs-3 text-body-emphasis body-cont-head" data-aos="zoom-out">Frontend</h3>
           <ul class="fs-5 list-group" data-aos="zoom-in">
-            <li class="list-group-item">Html</li>
-            <li class="list-group-item">Css</li>
+            <li class="list-group-item">HTML</li>
+            <li class="list-group-item">CSS</li>
             <li class="list-group-item">Bootstrap</li>
             <li class="list-group-item">JavaScript</li>
             <li class="list-group-item">React JS</li>
-            <li class="list-group-item">JQuery</li>
+            <li class="list-group-item">jQuery</li>
           </ul>
         </div>
       </div>
-      <div class="col d-flex align-items-start w-40 justify-content-center">
+
+      <!-- Backend Skills -->
+      <div class="col d-flex justify-content-center">
         <div>
           <h3 class="fs-3 text-body-emphasis body-cont-head" data-aos="zoom-out">Backend</h3>
           <ul class="fs-5 list-group" data-aos="zoom-in">
-            <li class="list-group-item">Express Js</li>
+            <li class="list-group-item">Express JS</li>
             <li class="list-group-item">Node JS</li>
             <li class="list-group-item">Python</li>
             <li class="list-group-item">SQL</li>
@@ -134,10 +143,11 @@
           </ul>
         </div>
       </div>
-      <div class="col d-flex align-items-start w-40 justify-content-center">
+
+      <!-- Other Tools -->
+      <div class="col d-flex justify-content-center">
         <div>
-          <h3 class="fs-3 text-body-emphasis body-cont-head" data-aos="zoom-out" 
-          >Others</h3>
+          <h3 class="fs-3 text-body-emphasis body-cont-head" data-aos="zoom-out">Others</h3>
           <ul class="fs-5 list-group" data-aos="zoom-in">
             <li class="list-group-item">Netlify</li>
             <li class="list-group-item">Render</li>
@@ -147,82 +157,95 @@
           </ul>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
 <section id="projects">
-   <div class="container col-xxl-8 px-2 py-4" data-aos="fade-down">
-        <h2 class="pb-2 border-bottom over" data-aos="slide-right">My Projects</h2>
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src=".//Screenshot 2025-06-18 000014.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+  <div class="container col-xxl-12 px-2 py-4" data-aos="fade-down">
+    <h2 class="pb-2 over align-items-center" data-aos="slide-right">My Projects</h2>
+
+    <!-- Project 1: Food App -->
+    <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6 text-center">
+        <img src="./Screenshot 2025-06-18 000014.png" class="d-block mx-auto img-fluid" alt="Food App Screenshot" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="fs-2 fw-bold text-body-emphasis lh-1 mb-3 body-cont-head">Food App <br> (E-Commerce)</h1>
-        <p class="lead">Developed a food ordering application using React.js, Express.js, and MongoDB.</p>
+        <p class="lead">Built a food ordering application using React.js, Express.js, and MongoDB for efficient online food ordering and payment processing.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a href="https://food-ecommerce-frontend.onrender.com " target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" style="box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;">Click</a>
+          <a href="https://food-ecommerce-frontend.onrender.com" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" title="View Food App Project">View Project</a>
         </div>
       </div>
     </div>
-  </div><div class="container col-xxl-8 px-2 py-4" data-aos="fade-down">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src="./Screenshot 2025-06-06 140205.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+
+    <!-- Project 2: JI Consulting Services -->
+    <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6 text-center">
+        <img src="./Screenshot 2025-06-06 140205.png" class="d-block mx-auto img-fluid" alt="JI Consulting Website Screenshot" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="fs-2 fw-bold text-body-emphasis lh-1 mb-3 body-cont-head">JI Consulting Services</h1>
-        <p class="lead">Developed a responsive website for JI Consultant using React.js, HTML, and CSS to ensure optimal performance acrossdevices.</p>
+        <p class="lead">Developed a responsive business website using React.js, HTML, and CSS to ensure optimal performance across devices.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a href="https://nextwebi.netlify.app/" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" style="box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;">Click</a>
+          <a href="https://nextwebi.netlify.app/" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" title="View JI Consulting Project">View Project</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container col-xxl-8 px-2 py-4" data-aos="fade-down">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src="./Screenshot 2025-06-17 201624.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+
+    <!-- Project 3: College Website -->
+    <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6 text-center">
+        <img src="./Screenshot 2025-06-17 201624.png" class="d-block mx-auto img-fluid" alt="College Website Screenshot" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="fs-2 fw-bold text-body-emphasis lh-1 mb-3 body-cont-head">College Website using Bootstrap</h1>
-        <p class="lead">Designed and developed a responsive website using Bootstrap framework</p>
+        <p class="lead">Designed and developed a responsive college website using Bootstrap to ensure cross-device compatibility and clean UI.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a href="https://rajavtc.in" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" style="box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;">Click</a>
+          <a href="https://rajavtc.in" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" title="View College Website Project">View Project</a>
         </div>
       </div>
     </div>
-  </div>
-      <div class="container col-xxl-8 px-2 py-4">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5" data-aos="fade-down">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src="./alexa project.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+
+    <!-- Project 4: Alexa Skill -->
+    <div class="row flex-lg-row-reverse align-items-center justify-content-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6 text-center">
+        <img src="./alexa project.png" class="d-block mx-auto img-fluid" alt="Alexa Skill Screenshot" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="fs-2 fw-bold text-body-emphasis lh-1 mb-3 body-cont-head">RRC Information in Alexa <br> (Amazon Alexa Skills Development)</h1>
-        <p class="lead">Developed voice-assisted functionality to fetch Rajapalayam Rajus College information using Python.</p>
+        <p class="lead">Built a voice-assisted Alexa skill using Python to provide Rajapalayam Rajus College information through Amazon Alexa.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" style="box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;">Click</a>
+          <a href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard" target="_blank" class="btn btn-primary btn-lg px-4 me-md-2" title="View Alexa Skill Project">View Project</a>
         </div>
       </div>
     </div>
+
   </div>
 </section>
+
 <section id="contact">
-  <div class="container">
-    <footer class="py-3 my-4">
-      <h2 class="pb-2 px-4 border-bottom over">Contact Me</h2>
-      <ul class="nav justify-content-center pb-3 mb-3">
-        <li class="nav-item"><a href="tel:+918220192109" class="nav-link px-2 text-body-secondary">
-          <img src="./contact-book-svgrepo-com.svg" height="50" width="50" data-aos="fade"/>
-        </a></li>
-        <li class="nav-item"><a href="mailto:johninfant021@gmail.com" class="nav-link px-2 text-body-secondary">
-          <img src="./gmail-svgrepo-com.svg" height="50" width="50" data-aos="fade" />
-        </a></li>
+  <div class="container text-center py-5">
+    <footer class="my-4">
+      <h2 class="pb-3 over">Contact Me</h2>
+      <ul class="nav justify-content-center gap-4">
+        <li class="nav-item">
+          <a href="tel:+918220192109" class="nav-link text-body-secondary" title="Call Me">
+            <img src="./contact-book-svgrepo-com.svg" alt="Phone Icon" height="50" width="50" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:johninfant021@gmail.com" class="nav-link text-body-secondary" title="Email Me">
+            <img src="./gmail-svgrepo-com.svg" alt="Gmail Icon" height="50" width="50" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+          </a>
+        </li>
       </ul>
     </footer>
   </div>
 </section>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
