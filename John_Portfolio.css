@@ -1,10 +1,13 @@
 html {
   scroll-padding-top: 80px; /* Adjust this value to match your navbar height */
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body{
   margin: 0;
+  overflow-x: hidden;
   /* background-color: #AD5F7B; */
+  /* margin: 100px; */
 }
 .navbar{
   /* background: #fa1679; */
