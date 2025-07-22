@@ -38,7 +38,7 @@ body {
 #home {
   height: 75vh;
   /* background: linear-gradient(to bottom, white, #DCDCDC); */
-  background: linear-gradient(to bottom, white, #696969, #dcdcdc);
+  background: linear-gradient(to bottom, white, #dcdcdc);
   height: 100vh;
   /* background-image: url(https://cdn.pixabay.com/photo/2025/07/11/16/38/landscape-9709190_1280.jpg); */
   /* background: radial-gradient(to bottom,#696969 0%, #A9A9A9 100%); */
@@ -99,4 +99,19 @@ body {
 }
 .lead {
   text-align: justify;
+}
+@media (max-width: 600px) {
+  .lead {
+    padding: 20px 10px;
+    margin: 10px 20px 20px;
+    font-size: medium;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:bolder;
+    font-style: normal;
+    /* border: 1px solid black; */
+    border-radius: 10%;
+    background-color:#d4d4d4;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
 }
