@@ -6,8 +6,15 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  /* background-color: #AD5F7B; */
-  /* margin: 100px; */
+
+}
+body, html {
+  position: relative;
+}
+.navbar.sticky-top {
+  position: sticky !important;
+  top: 0;
+  z-index: 1020;
 }
 .navbar {
   /* background: #fa1679; */
@@ -101,9 +108,9 @@ body {
   text-align: justify;
 }
 @media (max-width: 600px) {
-  html{
-    overflow-x: hidden;
-  }
+html{
+  overflow-x: hidden;
+}
   .lead {
     padding: 20px 10px;
     margin: 10px 20px 20px;
