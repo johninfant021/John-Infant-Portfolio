@@ -6,9 +6,9 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-
 }
-body, html {
+body,
+html {
   position: relative;
 }
 .navbar.sticky-top {
@@ -41,7 +41,9 @@ body, html {
   letter-spacing: 1px;
   font-family: "Vollkorn", serif;
 }
-
+.nav-item {
+  padding: 4px;
+}
 #home {
   height: 75vh;
   /* background: linear-gradient(to bottom, white, #DCDCDC); */
@@ -108,20 +110,28 @@ body, html {
   text-align: justify;
 }
 @media (max-width: 600px) {
-html{
-  overflow-x: hidden;
-}
+  html {
+    overflow-x: hidden;
+  }
   .lead {
     padding: 20px 10px;
-    margin: 10px 20px 20px;
-    font-size: medium;
-    font-family: "Outfit", sans-serif;
+    text-shadow: 1px 1px 2px rgb(86, 86, 86);
+    font-size: small;
+    line-height: 2.5rem;
+    font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
-    font-weight:bolder;
+    font-weight: bolder;
     font-style: normal;
     /* border: 1px solid black; */
     border-radius: 5px;
-    background-color:#d4d4d4;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: #d4d4d4;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+  }
+  #education,
+  #about,
+  #skills,
+  #projects,
+  #contact {
+    text-align: center;
   }
 }
