@@ -46,8 +46,8 @@ html {
 }
 #home {
   height: 75vh;
-  /* background: linear-gradient(to bottom, white, #DCDCDC); */
-  background: linear-gradient(to bottom, white, #dcdcdc);
+  background: linear-gradient(to bottom, white, #DCDCDC);
+  /* background: linear-gradient(to bottom, white, #dcdcdc); */
   height: 100vh;
   /* background-image: url(https://cdn.pixabay.com/photo/2025/07/11/16/38/landscape-9709190_1280.jpg); */
   /* background: radial-gradient(to bottom,#696969 0%, #A9A9A9 100%); */
@@ -58,9 +58,10 @@ html {
   font-family: "Aclonica", sans-serif;
 }
 .pro-img {
-  border-radius: 20px;
+  border-radius: 50px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
+
 .head-content {
   letter-spacing: 1.5px;
   text-shadow: 1px 0 1px black;
