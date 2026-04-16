@@ -2,311 +2,594 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="John Infant - Full Stack Developer Portfolio">
-  <meta name="author" content="John Infant">
-  <title>John Infant - Full Stack Developer</title>
-  
-  <link rel="icon" type="image/jpg" href="./FB_IMG_1739981634990.jpg">
-  <link rel="stylesheet" href="John_Portfolio.css">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description" content="John Sahaya Infant J — Full Stack Developer specialising in MERN Stack, Python, and Database Management." />
+  <title>John Infant — Full Stack Developer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="./FB_IMG_1739981634990.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap (grid utility only) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Portfolio CSS -->
+  <link rel="stylesheet" href="./John_Portfolio.css" />
 </head>
 
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%; display: flex; justify-content: space-between; align-items: center;">
-      <a href="#home" class="navbar-brand">John Infant</a>
-      
-      <ul style="display: flex; list-style: none; gap: 2.5rem; margin: 0; padding: 0;">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg" id="navbar">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand" href="#home">John <span>Infant</span></a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false"
+        style="box-shadow:none;">
+        <span style="display:flex;flex-direction:column;gap:5px;width:22px">
+          <span style="height:1px;background:var(--text);display:block;transition:all .3s"></span>
+          <span style="height:1px;background:var(--text);display:block;transition:all .3s"></span>
+          <span style="height:1px;background:var(--text);display:block;width:60%;transition:all .3s"></span>
+        </span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-cta-btn" href="#contact">Get in Touch</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
   <section id="home">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%;">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-        
-        <!-- Profile Image -->
-        <div style="order: 2;">
-          <img 
-            src="./FB_IMG_1739981634990.jpg" 
-            alt="John Infant - Full Stack Developer" 
-            class="profile-image"
-            style="width: 100%; max-width: 400px; height: auto;"
-          >
-        </div>
+    <div class="hero-wrapper">
+      <div class="hero-badge">Available for Opportunities</div>
 
-        <!-- Hero Content -->
-        <div class="hero-content" style="order: 1;">
-          <h1 class="display-text hero-title">John Sahaya Infant J</h1>
-          <p class="hero-subtitle">Full Stack Developer</p>
-          <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.8;">
-            Transforming ideas into elegant digital solutions. Passionate about clean code, modern design, and creating impactful web experiences.
-          </p>
-          
-          <div class="hero-buttons">
-            <a href="https://github.com/johninfant021?tab=repositories" target="_blank" class="btn-primary-custom">GitHub</a>
-            <a href="https://www.linkedin.com/in/john-infant-j-6728a7244/" target="_blank" class="btn-secondary-custom">LinkedIn</a>
-          </div>
-        </div>
+      <h1 class="hero-name">
+        <span class="line1">John Sahaya</span>
+        <span class="line2">Infant <span class="accent">J</span></span>
+      </h1>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%;">
-      <h2>About Me</h2>
-      
-      <div class="about-content">
-        <p>
-          I am a highly organized and detail-oriented Computer Science graduate with a passion for building elegant digital solutions. 
-          With hands-on experience in full stack development, I thrive in collaborative environments where I can solve complex problems through clean, 
-          maintainable code and thoughtful design.
-        </p>
-        <p>
-          I'm motivated by the intersection of technology and user experience—creating applications that are not just functional, 
-          but intuitive and enjoyable to use. I'm seeking opportunities with innovative companies where I can contribute my technical expertise 
-          while continuously learning and growing professionally.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION SECTION -->
-  <section id="education">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%;">
-      <h2>Education</h2>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-        
-        <!-- PG -->
-        <div class="education-card">
-          <h3>Kalasalingam University</h3>
-          <h4>Master of Computer Applications (Online)</h4>
-          <p><strong>2024 – 2026</strong></p>
-          <p>First Semester - CGPA: <strong>8.21</strong></p>
-        </div>
-
-        <!-- UG -->
-        <div class="education-card">
-          <h3>Rajapalayam Raju's College</h3>
-          <h4>Bachelor of Computer Science</h4>
-          <p><strong>2020 – 2023</strong></p>
-          <p>CGPA: <strong>7.97</strong></p>
-        </div>
-
-        <!-- School -->
-        <div class="education-card">
-          <h3>P.A.C.M Higher Secondary School</h3>
-          <h4>Higher Secondary Certificate (HSC) – 2020</h4>
-          <p>Percentage: <strong>69%</strong></p>
-          <h4 style="margin-top: 1rem;">Secondary School Leaving Certificate (SSLC) – 2018</h4>
-          <p>Percentage: <strong>86%</strong></p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section id="skills">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%;">
-      <h2>Technical Skills</h2>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-        
-        <!-- Frontend -->
-        <div class="skill-group">
-          <h3>Frontend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React JS</span>
-            <span class="skill-tag">Tailwind CSS</span>
-            <span class="skill-tag">Bootstrap</span>
-            <span class="skill-tag">jQuery</span>
-          </div>
-        </div>
-
-        <!-- Backend -->
-        <div class="skill-group">
-          <h3>Backend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Express.js</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">RESTful APIs</span>
-          </div>
-        </div>
-
-        <!-- Tools & Platforms -->
-        <div class="skill-group">
-          <h3>Tools & Platforms</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Netlify</span>
-            <span class="skill-tag">Render</span>
-            <span class="skill-tag">GoDaddy</span>
-            <span class="skill-tag">Hostinger</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">MS Office Suite</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section id="projects">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%;">
-      <h2>Featured Projects</h2>
-
-      <!-- Project 1: Hiking Gear -->
-      <div class="project-card">
-        <img 
-          src="./Screenshot 2025-07-22 105931.png" 
-          alt="Hiking Gear Website" 
-          class="project-image"
-        >
-        <div class="project-content">
-          <h3>🧭 Hiking Gear Website</h3>
-          <p>
-            A fully responsive hiking gear showcase built with the MERN stack. Features secure authentication, 
-            smooth scroll animations, dynamic carousels, and an engaging UI. Users can explore adventure content, 
-            connect through blog posts, and learn from community contributors.
-          </p>
-          <a href="https://hikepro-gear.netlify.app/" target="_blank" class="project-button">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 2: Food App -->
-      <div class="project-card">
-        <img 
-          src="./Screenshot 2025-06-18 000014.png" 
-          alt="Food E-Commerce App" 
-          class="project-image"
-        >
-        <div class="project-content">
-          <h3>🍔 Food App (E-Commerce)</h3>
-          <p>
-            A comprehensive food ordering application built with React, Express, and MongoDB. 
-            Enables efficient online food ordering with secure payment processing, user authentication, 
-            and a seamless checkout experience.
-          </p>
-          <a href="https://food-ecommerce-frontend.onrender.com" target="_blank" class="project-button">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 3: JI Consulting -->
-      <div class="project-card">
-        <img 
-          src="./Screenshot 2025-06-06 140205.png" 
-          alt="JI Consulting Services" 
-          class="project-image"
-        >
-        <div class="project-content">
-          <h3>💼 JI Consulting Services</h3>
-          <p>
-            A responsive business website showcasing professional consulting services. 
-            Built with React, HTML, and CSS to deliver optimal performance across all devices. 
-            Features elegant design and intuitive navigation.
-          </p>
-          <a href="https://nextwebi.netlify.app/" target="_blank" class="project-button">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 4: College Website -->
-      <div class="project-card">
-        <img 
-          src="./Screenshot 2025-06-17 201624.png" 
-          alt="College Website" 
-          class="project-image"
-        >
-        <div class="project-content">
-          <h3>🎓 College Website (Bootstrap)</h3>
-          <p>
-            A responsive college website built with Bootstrap to ensure cross-device compatibility. 
-            Features clean, professional design with easy navigation and information architecture 
-            optimized for students and staff.
-          </p>
-          <a href="https://rajavtc.in" target="_blank" class="project-button">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 5: Alexa Skill -->
-      <div class="project-card">
-        <img 
-          src="./alexa project.png" 
-          alt="Alexa Skill for College Information" 
-          class="project-image"
-        >
-        <div class="project-content">
-          <h3>🎤 Alexa Skill - College Info</h3>
-          <p>
-            A voice-assisted Amazon Alexa skill built with Python that provides real-time information 
-            about Rajapalayam Rajus College. Demonstrates expertise in voice technology integration 
-            and natural language processing.
-          </p>
-          <a href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard" target="_blank" class="project-button">View Project</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%;">
-      <h2>Get In Touch</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 3rem; color: rgba(255, 255, 255, 0.8);">
-        Let's connect and discuss how I can help bring your next project to life.
+      <p class="hero-sub">
+        Full Stack Developer crafting scalable web applications with the MERN stack, Python, and modern databases.
+        Based in Tamil Nadu, India.
       </p>
-      
-      <div class="contact-icons">
-        <a href="tel:+918220192109" title="Call Me" class="contact-icon">
-          <img src="./contact-book-svgrepo-com.svg" alt="Phone">
-        </a>
-        <a href="https://www.instagram.com/john_infant__/" target="_blank" title="Instagram" class="contact-icon">
-          <img src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000" alt="Instagram">
-        </a>
-        <a href="mailto:johninfant021@gmail.com" title="Email" class="contact-icon">
-          <img src="./gmail-svgrepo-com.svg" alt="Email">
-        </a>
+
+      <div class="hero-actions">
+        <a class="btn-glow" href="#projects">View Projects ↗</a>
+        <a class="btn-ghost" href="https://github.com/johninfant021?tab=repositories" target="_blank">GitHub</a>
+        <a class="btn-ghost" href="https://www.linkedin.com/in/john-infant-j-6728a7244/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container-narrow">
+      <div class="section-eyebrow reveal">Who I Am</div>
+
+      <div class="about-grid">
+        <!-- Left: Image -->
+        <div class="reveal" style="transition-delay:0.1s">
+          <div class="about-img-wrap">
+            <div class="about-img-inner">
+              <img src="./FB_IMG_1739981634990.jpg" alt="John Infant" />
+            </div>
+            <div class="about-img-accent">
+              <div class="accent-num">4<span style="font-size:1.2rem">+</span></div>
+              <div class="accent-label">Projects</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="reveal" style="transition-delay:0.2s">
+          <h2 class="section-title" style="margin-bottom:2rem">
+            Building the<br>Future,<br><em>One Line at a Time</em>
+          </h2>
+
+          <div class="about-text">
+            <p>
+              I'm a highly organized and hardworking Computer Science graduate eager to gain practical experience
+              in the tech industry. I seek opportunities with companies that offer real challenges and support
+              personal and professional growth.
+            </p>
+            <p>
+              With hands-on experience in Full Stack Development, Python, and Database Management, I'm passionate
+              about solving real-world problems — from MERN-stack applications to voice-assisted Alexa skills.
+            </p>
+          </div>
+
+          <div class="about-tags">
+            <span class="tag">React JS</span>
+            <span class="tag">Node JS</span>
+            <span class="tag">Express JS</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Alexa Skills</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer-nav">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%;">
-      <ul style="display: flex; justify-content: center; gap: 2rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap;">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <p class="footer-copyright">© 2025 John Infant. Crafted with purpose.</p>
+  <!-- ═══════════════════════════════════════════════
+       EDUCATION
+  ═══════════════════════════════════════════════ -->
+  <section id="education">
+    <div class="container-narrow">
+      <div class="section-eyebrow reveal">Academic Journey</div>
+      <h2 class="section-title reveal" style="transition-delay:0.1s">Education</h2>
+
+      <div class="edu-grid">
+
+        <div class="edu-item reveal" style="transition-delay:0.1s">
+          <div class="edu-year">2024 – 2026</div>
+          <div class="edu-line-wrap">
+            <div class="edu-dot"></div>
+            <div class="edu-connector"></div>
+          </div>
+          <div class="edu-content">
+            <h3>Kalasalingam University</h3>
+            <h4>Master of Computer Applications · Online</h4>
+            <span class="edu-badge">Sem 1 CGPA: 8.21</span>
+          </div>
+        </div>
+
+        <div class="edu-item reveal" style="transition-delay:0.2s">
+          <div class="edu-year">2020 – 2023</div>
+          <div class="edu-line-wrap">
+            <div class="edu-dot"></div>
+            <div class="edu-connector"></div>
+          </div>
+          <div class="edu-content">
+            <h3>Rajapalayam Raju's College</h3>
+            <h4>Bachelor of Computer Science</h4>
+            <span class="edu-badge">CGPA: 7.97</span>
+          </div>
+        </div>
+
+        <div class="edu-item reveal" style="transition-delay:0.3s">
+          <div class="edu-year">HSC · 2020</div>
+          <div class="edu-line-wrap">
+            <div class="edu-dot"></div>
+            <div class="edu-connector"></div>
+          </div>
+          <div class="edu-content">
+            <h3>P.A.C.M Higher Secondary School</h3>
+            <h4>Higher Secondary Certificate · Rajapalayam</h4>
+            <span class="edu-badge">69%</span>
+          </div>
+        </div>
+
+        <div class="edu-item reveal" style="transition-delay:0.4s">
+          <div class="edu-year">SSLC · 2018</div>
+          <div class="edu-line-wrap">
+            <div class="edu-dot"></div>
+          </div>
+          <div class="edu-content">
+            <h3>P.A.C.M Higher Secondary School</h3>
+            <h4>Secondary School Leaving Certificate · Rajapalayam</h4>
+            <span class="edu-badge">86%</span>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════════════ -->
+  <section id="skills">
+    <div class="container-narrow">
+      <div class="section-eyebrow reveal">What I Work With</div>
+      <h2 class="section-title reveal" style="transition-delay:0.1s">Technical <em>Skills</em></h2>
+
+      <div class="skills-wrapper">
+
+        <div class="skill-group reveal" style="transition-delay:0.1s">
+          <div class="skill-group-head">
+            <div class="skill-icon fe">⟨/⟩</div>
+            <span class="skill-group-name">Frontend</span>
+          </div>
+          <div class="skill-chips">
+            <span class="skill-chip">HTML5</span>
+            <span class="skill-chip">CSS3</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">React JS</span>
+            <span class="skill-chip">Tailwind CSS</span>
+            <span class="skill-chip">Bootstrap</span>
+            <span class="skill-chip">jQuery</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal" style="transition-delay:0.2s">
+          <div class="skill-group-head">
+            <div class="skill-icon be">⚙</div>
+            <span class="skill-group-name">Backend</span>
+          </div>
+          <div class="skill-chips">
+            <span class="skill-chip">Node JS</span>
+            <span class="skill-chip">Express JS</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">MongoDB</span>
+            <span class="skill-chip">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal" style="transition-delay:0.3s">
+          <div class="skill-group-head">
+            <div class="skill-icon ot">▲</div>
+            <span class="skill-group-name">Deployment & Tools</span>
+          </div>
+          <div class="skill-chips">
+            <span class="skill-chip">Netlify</span>
+            <span class="skill-chip">Render</span>
+            <span class="skill-chip">GoDaddy</span>
+            <span class="skill-chip">Hostinger</span>
+            <span class="skill-chip">MS Word</span>
+            <span class="skill-chip">MS Excel</span>
+            <span class="skill-chip">PowerPoint</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════════ -->
+  <section id="projects">
+    <div class="container-narrow">
+      <div class="section-eyebrow reveal">Selected Work</div>
+      <h2 class="section-title reveal" style="transition-delay:0.1s">My <em>Projects</em></h2>
+
+      <div class="projects-grid">
+
+        <!-- Featured: Hiking Gear -->
+        <div class="project-card featured reveal" style="transition-delay:0.1s">
+          <div class="project-img-wrap">
+            <img src="./Screenshot 2025-07-22 105931.png" alt="Hiking Gear Website" />
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-num">01 · Featured</div>
+            <h3 class="project-name">🧭 Hiking Gear Website</h3>
+            <p class="project-desc">
+              A fully responsive adventure gear platform built with the MERN stack.
+              Features secure authentication, smooth scroll animations, dynamic carousels,
+              and an engaging UI with Blog, Contributors, and Contact sections.
+            </p>
+            <div class="project-footer">
+              <div class="project-techs">
+                <span class="proj-tech">React</span>
+                <span class="proj-tech">Node JS</span>
+                <span class="proj-tech">MongoDB</span>
+                <span class="proj-tech">Auth</span>
+              </div>
+              <a class="project-link-btn" href="https://hikepro-gear.netlify.app/" target="_blank">
+                Live Site →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Food App -->
+        <div class="project-card reveal" style="transition-delay:0.15s">
+          <div class="project-img-wrap">
+            <img src="./Screenshot 2025-06-18 000014.png" alt="Food App" />
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-num">02</div>
+            <h3 class="project-name">Food App — E-Commerce</h3>
+            <p class="project-desc">
+              Food ordering platform with payment processing, built with React, Express, and MongoDB.
+            </p>
+            <div class="project-footer">
+              <div class="project-techs">
+                <span class="proj-tech">React</span>
+                <span class="proj-tech">Express</span>
+                <span class="proj-tech">MongoDB</span>
+              </div>
+              <a class="project-link-btn" href="https://food-ecommerce-frontend.onrender.com" target="_blank">
+                Live →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- JI Consulting -->
+        <div class="project-card reveal" style="transition-delay:0.2s">
+          <div class="project-img-wrap">
+            <img src="./Screenshot 2025-06-06 140205.png" alt="JI Consulting Services" />
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-num">03</div>
+            <h3 class="project-name">JI Consulting Services</h3>
+            <p class="project-desc">
+              Responsive business website for a consulting firm, ensuring cross-device performance.
+            </p>
+            <div class="project-footer">
+              <div class="project-techs">
+                <span class="proj-tech">React</span>
+                <span class="proj-tech">HTML/CSS</span>
+              </div>
+              <a class="project-link-btn" href="https://nextwebi.netlify.app/" target="_blank">
+                Live →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- College Website -->
+        <div class="project-card reveal" style="transition-delay:0.25s">
+          <div class="project-img-wrap">
+            <img src="./Screenshot 2025-06-17 201624.png" alt="College Website" />
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-num">04</div>
+            <h3 class="project-name">College Website</h3>
+            <p class="project-desc">
+              Responsive college website with clean UI and cross-device compatibility using Bootstrap.
+            </p>
+            <div class="project-footer">
+              <div class="project-techs">
+                <span class="proj-tech">Bootstrap</span>
+                <span class="proj-tech">Responsive</span>
+              </div>
+              <a class="project-link-btn" href="https://rajavtc.in" target="_blank">
+                Live →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alexa Skill -->
+        <div class="project-card reveal" style="transition-delay:0.3s; grid-column: span 2;">
+          <div style="display:grid; grid-template-columns: 1fr 1.6fr;">
+            <div class="project-img-wrap">
+              <img src="./alexa project.png" alt="Alexa Skill" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-num">05</div>
+              <h3 class="project-name" style="font-size:1.5rem">RRC Info — Alexa Skill</h3>
+              <p class="project-desc">
+                A voice-assisted Amazon Alexa skill built with Python that provides Rajapalayam Raju's College
+                information through natural language queries. Developed using the Alexa Skills Kit, enabling
+                hands-free access to institutional details.
+              </p>
+              <div class="project-footer">
+                <div class="project-techs">
+                  <span class="proj-tech">Python</span>
+                  <span class="proj-tech">Alexa SDK</span>
+                  <span class="proj-tech">Voice AI</span>
+                </div>
+                <a class="project-link-btn"
+                  href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard"
+                  target="_blank">
+                  Amazon Console →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container-narrow">
+      <div class="section-eyebrow reveal">Let's Connect</div>
+      <h2 class="section-title reveal" style="transition-delay:0.1s">Get in <em>Touch</em></h2>
+
+      <div class="contact-grid">
+
+        <!-- Left: Links -->
+        <div class="reveal" style="transition-delay:0.1s">
+          <p class="contact-intro">
+            I'm open to full-time roles, freelance projects, and interesting collaborations.
+            If you have something in mind, drop me a message — I reply within 24 hours.
+          </p>
+
+          <div class="contact-items">
+            <a class="contact-item" href="tel:+918220192109">
+              <div class="contact-item-icon">☎</div>
+              <div>
+                <div class="contact-item-label">Phone</div>
+                <div class="contact-item-value">+91 82201 92109</div>
+              </div>
+            </a>
+
+            <a class="contact-item" href="mailto:johninfant021@gmail.com">
+              <div class="contact-item-icon">✉</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value">johninfant021@gmail.com</div>
+              </div>
+            </a>
+
+            <a class="contact-item" href="https://www.linkedin.com/in/john-infant-j-6728a7244/" target="_blank">
+              <div class="contact-item-icon" style="font-weight:700;font-size:0.8rem">in</div>
+              <div>
+                <div class="contact-item-label">LinkedIn</div>
+                <div class="contact-item-value">john-infant-j-6728a7244</div>
+              </div>
+            </a>
+
+            <a class="contact-item" href="https://www.instagram.com/john_infant__/" target="_blank">
+              <div class="contact-item-icon">◈</div>
+              <div>
+                <div class="contact-item-label">Instagram</div>
+                <div class="contact-item-value">@john_infant__</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="reveal" style="transition-delay:0.2s">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Jane Smith" required />
+              </div>
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="jane@example.com" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" placeholder="Let's collaborate on..." />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">Send Message →</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer>
+    <a class="footer-logo" href="#home">John <span>Infant</span></a>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 John Infant J</p>
   </footer>
 
-</body>
+  <!-- ═══════════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+  <script>
+    /* ── Custom Cursor ─────────────────────────────── */
+    const cursor     = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top  = mouseY + 'px';
+    });
+
+    (function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top  = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+
+    document.querySelectorAll('a, button, .skill-chip, .tag').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+        cursorRing.style.transform = 'translate(-50%,-50%) scale(1.5)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+        cursorRing.style.transform = 'translate(-50%,-50%) scale(1)';
+      });
+    });
+
+    /* ── Navbar Scroll Effect ──────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* ── Reveal on Scroll ──────────────────────────── */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    /* ── Active Nav Link ───────────────────────────── */
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinks  = document.querySelectorAll('.nav-link');
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.45 });
+    sections.forEach(s => navObserver.observe(s));
+
+    /* ── Form Submit ───────────────────────────────── */
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = 'Sending…';
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = '#1db954';
+        btn.style.opacity = '1';
+      }, 1400);
+    }
+  </script>
+
+</body>
 </html>
