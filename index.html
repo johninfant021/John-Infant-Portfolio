@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- ── Primary SEO ── -->
   <title>John Sahaya Infant J | MERN Stack Developer</title>
@@ -11,7 +12,9 @@
   <meta name="keywords" content="John Infant, John Sahaya Infant, MERN Stack Developer, React Developer, Node.js Developer, MongoDB, Portfolio, Tamil Nadu, India, Web Developer" />
   <meta name="author" content="John Sahaya Infant J" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#8b5cf6" />
+  <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
   <link rel="canonical" href="https://johninfant.dev/" />
 
   <!-- ── Open Graph (Facebook / LinkedIn) ── -->
@@ -66,1038 +69,690 @@
   }
   </script>
 
+  <!-- ── Theme (runs before paint to avoid a flash) ── -->
+  <script>
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.add('js');
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      root.dataset.theme = saved || (prefersLight ? 'light' : 'dark');
+    })();
+  </script>
+
   <!-- ── Favicon ── -->
-  <link rel="icon" type="image/jpeg" href="./john pic.jpeg" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
   <link rel="apple-touch-icon" href="./john pic.jpeg" />
 
   <!-- ── Fonts ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
-  <!-- ── Portfolio CSS ── -->
+  <!-- ── Portfolio CSS / JS ── -->
+  <link rel="preload" as="image" href="./assets/john.webp" type="image/webp" />
   <link rel="stylesheet" href="./John_Portfolio.css" />
+  <script src="./John_Portfolio.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Particles Background -->
-  <canvas id="particleCanvas"></canvas>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></g></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></g></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></g></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.27 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.27a16 16 0 0 0 5.82 5.82l1.63-1.63a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></g></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></g></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></g></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></g></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  </svg>
 
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a class="navbar-brand" href="#home">
-        <span class="brand-dot"></span>
-        John <span class="brand-accent">Infant</span>
+  <header class="nav-wrap">
+    <nav class="nav" id="navbar" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="John Infant — home">
+        <span class="brand-mark">Ji</span>
+        <span class="brand-name">John Infant</span>
       </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a class="nav-link" href="#about" data-text="About">About</a></li>
-        <li><a class="nav-link" href="#skills" data-text="Skills">Skills</a></li>
-        <li><a class="nav-link" href="#projects" data-text="Projects">Projects</a></li>
-        <li><a class="nav-link" href="#education" data-text="Education">Education</a></li>
-        <li><a class="nav-link" href="#experience" data-text="Experience">Experience</a></li>
-        <li><a class="nav-cta" href="#contact">Get in Touch</a></li>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Work</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
       </ul>
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="icon-btn cmdk-trigger" type="button" data-cmdk-open aria-label="Open command menu">
+          <svg class="i"><use href="#i-search"/></svg>
+          <kbd class="kbd-hint"><span data-mod>Ctrl</span> K</kbd>
+        </button>
+        <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle colour theme">
+          <svg class="i theme-sun"><use href="#i-sun"/></svg>
+          <svg class="i theme-moon"><use href="#i-moon"/></svg>
+        </button>
+        <a class="btn btn-solid btn-sm nav-cta" href="#contact">Let's talk</a>
+        <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="menu-lines"><span></span><span></span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#about" class="mobile-link"><span>01</span>About</a>
+      <a href="#skills" class="mobile-link"><span>02</span>Skills</a>
+      <a href="#projects" class="mobile-link"><span>03</span>Work</a>
+      <a href="#experience" class="mobile-link"><span>04</span>Experience</a>
+      <a href="#education" class="mobile-link"><span>05</span>Education</a>
+      <a href="#contact" class="mobile-link"><span>06</span>Contact</a>
     </div>
-  </nav>
+  </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" class="mobile-link">About</a>
-    <a href="#education" class="mobile-link">Education</a>
-    <a href="#skills" class="mobile-link">Skills</a>
-    <a href="#projects" class="mobile-link">Projects</a>
-    <a href="#experience" class="mobile-link">Experience</a>
-    <a href="#contact" class="mobile-link">Contact</a>
-  </div>
+  <main id="main">
 
-  <!-- ═══════════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════════ -->
-  <section id="home">
-    <div class="hero-container">
-
-      <!-- Left Content -->
-      <div class="hero-left">
-        <div class="hero-badge hero-status">
-          <span class="badge-pulse"></span>
-          Available for Opportunities
-        </div>
-        <div class="hero-badge hero-role-badge">
-          Current role · MERN Stack Developer
-        </div>
-
-        <h1 class="hero-name">
-          <span class="name-line">John Sahaya</span>
-          <span class="name-line name-outline">Infant <em>J</em></span>
-        </h1>
-
-        <div class="hero-role">
-          <span class="role-prefix">MERN Stack Developer</span>
-          <span class="role-detail">Building premium React experiences, scalable Node.js APIs, and MongoDB-powered applications.</span>
-        </div>
-
-        <p class="hero-desc">
-          Full Stack Developer focused on MERN solutions with modern interfaces and reliable backend architecture.
-          Python is a secondary skill for automation and analytics.
-        </p>
-
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-num">7+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num">3+</span>
-            <span class="stat-label">Years Learning</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num">8.21</span>
-            <span class="stat-label">MCA CGPA</span>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn-primary" href="#projects">
-            <span>View Projects</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <a class="btn-secondary" href="./JOHN SAHAYA INFANT J.pdf" download>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span>Download CV</span>
-          </a>
-          <a class="btn-icon" href="https://github.com/johninfant021?tab=repositories" target="_blank" aria-label="GitHub">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          </a>
-          <a class="btn-icon" href="https://www.linkedin.com/in/john-infant-j-6728a7244/" target="_blank" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
+    <!-- ═══════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════ -->
+    <section id="home" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
       </div>
 
-      <!-- Right: Profile Image -->
-      <div class="hero-right">
-        <div class="profile-ring-wrap">
-          <div class="profile-glow"></div>
-          <div class="profile-ring ring-1"></div>
-          <div class="profile-ring ring-2"></div>
-          <div class="profile-img-wrap">
-            <img src="./john pic.jpeg" alt="John Infant J" class="profile-img" />
-          </div>
-          <!-- Floating Tech Badges -->
-          <div class="float-badge react">React</div>
-          <div class="float-badge node">Node.js</div>
-          <div class="float-badge javascript">Javascript</div>
-          <div class="float-badge mongo">MongoDB</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="hero-scroll">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
-      <span>Scroll to explore</span>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       ABOUT
-  ═══════════════════════════════════════════════ -->
-  <section id="about">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Who I Am</span>
-        <h2 class="section-title">Building the Future,<br><em>One Line at a Time</em></h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-image-col reveal" style="transition-delay:0.15s">
-          <div class="about-img-card">
-            <img src="./john pic.jpeg" alt="John Infant J" />
-            <div class="img-card-overlay"></div>
-            <div class="img-card-tag">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Tamil Nadu, India
-            </div>
-          </div>
-          <div class="about-card-stat glass-card">
-            <div class="stat-big">6<span>+</span></div>
-            <div class="stat-desc">Completed Projects</div>
-          </div>
-        </div>
-
-        <div class="about-content-col reveal" style="transition-delay:0.25s">
-          <p class="about-lead">
-            I'm a <strong>Computer Science graduate</strong> with a passion for building impactful,
-            user-centric applications. Currently pursuing my MCA at Kalasalingam University.
-          </p>
-          <p class="about-body">
-            With hands-on experience in MERN stack development, database design, and modern web architecture,
-            I solve real-world problems with polished interfaces and stable backend systems.
-            I thrive in environments that challenge me to grow.
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="status-pill reveal">
+            <span class="pulse-dot"></span>
+            Available for new opportunities
           </p>
 
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <div class="highlight-icon">🎓</div>
-              <div>
-                <div class="highlight-title">MCA Student</div>
-                <div class="highlight-sub">Kalasalingam University · Sem 1 CGPA 8.21</div>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">💡</div>
-              <div>
-                <div class="highlight-title">Self-driven Learner</div>
-                <div class="highlight-sub">Always exploring new technologies & frameworks</div>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">🤝</div>
-              <div>
-                <div class="highlight-title">Open to Collaborate</div>
-                <div class="highlight-sub">Full-time roles, freelance & interesting projects</div>
-              </div>
-            </div>
-          </div>
+          <h1 class="hero-name reveal" style="--d:.08s">
+            <span class="line">John Sahaya</span>
+            <span class="line"><em>Infant</em> J.</span>
+          </h1>
 
-          <div class="about-tags">
-            <span class="tag">React JS</span>
-            <span class="tag">Node JS</span>
-            <span class="tag">Express JS</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">Python</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Alexa Skills</span>
-            <span class="tag">Responsive Design</span>
-            <span class="tag">REST APIs</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       SKILLS
-  ═══════════════════════════════════════════════ -->
-  <section id="skills">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="eyebrow">What I Work With</span>
-        <h2 class="section-title">Technical <em>Skills</em></h2>
-      </div>
-
-      <div class="skills-layout">
-
-        <!-- Primary Stack Column -->
-        <div class="skill-bars-col reveal" style="transition-delay:0.1s">
-          <h3 class="skill-col-title">Primary Focus</h3>
-          <div class="skill-pill-grid">
-            <span class="skill-pill skill-primary">MERN Stack</span>
-            <span class="skill-pill">React JS</span>
-            <span class="skill-pill">Node JS</span>
-            <span class="skill-pill">Express JS</span>
-            <span class="skill-pill">MongoDB</span>
-            <span class="skill-pill skill-secondary">Python</span>
-            <span class="skill-pill">REST APIs</span>
-            <span class="skill-pill">UI/UX</span>
-          </div>
-          <p class="skill-description">
-            Building premium web applications with a clear focus on MERN technologies, clean architecture,
-            and responsive user experiences. Python is used selectively for automation and analytics.
+          <p class="hero-lede reveal" style="--d:.16s">
+            <strong>MERN Stack Developer</strong> building premium React experiences, scalable Node.js APIs,
+            and MongoDB-powered applications. Python is my secondary tool for automation and analytics.
           </p>
-        </div>
 
-        <!-- Skill Cards Column -->
-        <div class="skill-cards-col">
-
-          <div class="skill-card reveal" style="transition-delay:0.15s">
-            <div class="skill-card-icon frontend-icon">⟨/⟩</div>
-            <div class="skill-card-content">
-              <h4>Frontend</h4>
-              <div class="chip-list">
-                <span class="chip">HTML5</span>
-                <span class="chip">CSS3</span>
-                <span class="chip">JavaScript</span>
-                <span class="chip">React JS</span>
-                <span class="chip">Tailwind CSS</span>
-                <span class="chip">Bootstrap</span>
-                <span class="chip">jQuery</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-card reveal" style="transition-delay:0.25s">
-            <div class="skill-card-icon backend-icon">⚙</div>
-            <div class="skill-card-content">
-              <h4>Backend</h4>
-              <div class="chip-list">
-                <span class="chip">Node JS</span>
-                <span class="chip">Express JS</span>
-                <span class="chip">Python</span>
-                <span class="chip">MongoDB</span>
-                <span class="chip">MySQL</span>
-                <span class="chip">REST API</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-card reveal" style="transition-delay:0.35s">
-            <div class="skill-card-icon tools-icon">▲</div>
-            <div class="skill-card-content">
-              <h4>Deployment & Tools</h4>
-              <div class="chip-list">
-                <span class="chip">Netlify</span>
-                <span class="chip">Render</span>
-                <span class="chip">GoDaddy</span>
-                <span class="chip">Hostinger</span>
-                <span class="chip">Git</span>
-                <span class="chip">MS Office</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       PROJECTS
-  ═══════════════════════════════════════════════ -->
-  <section id="projects">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Selected Work</span>
-        <h2 class="section-title">My <em>Projects</em></h2>
-      </div>
-
-      <div class="projects-grid">
-
-        <!-- Featured Project: Hiking Gear -->
-        <div class="project-card project-featured reveal" style="transition-delay:0.1s">
-          <div class="project-media">
-            <img src="./Hike Pro.png" alt="Hiking Gear Website — MERN Stack adventure gear e-commerce platform" loading="eager" />
-            <div class="project-media-overlay">
-              <a href="https://hikepro-gear.netlify.app/" target="_blank" class="project-visit-btn">
-                View Live
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-meta">
-              <span class="project-index">01 · Featured</span>
-              <div class="project-techs">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node JS</span>
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag">Auth</span>
-              </div>
-            </div>
-            <h3 class="project-title">🧭 Hiking Gear Website</h3>
-            <p class="project-desc">
-              A fully responsive adventure gear platform built with the MERN stack.
-              Features secure authentication, smooth scroll animations, dynamic carousels,
-              and an engaging UI with Blog, Contributors, and Contact sections.
-            </p>
-            <a href="https://hikepro-gear.netlify.app/" target="_blank" class="project-link">
-              Live Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          <div class="hero-actions reveal" style="--d:.24s">
+            <a class="btn btn-solid" href="#projects">
+              View my work
+              <svg class="i"><use href="#i-arrow-right"/></svg>
             </a>
-          </div>
-        </div>
-
-        <!-- Food App -->
-        <div class="project-card reveal" style="transition-delay:0.15s">
-          <div class="project-media">
-            <img src="./Food App.png" alt="Food App — MERN Stack e-commerce food ordering platform" loading="lazy" />
-            <div class="project-media-overlay">
-              <a href="https://food-ecommerce-frontend.onrender.com" target="_blank" class="project-visit-btn">View Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-meta">
-              <span class="project-index">02</span>
-              <div class="project-techs">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Express</span>
-                <span class="tech-tag">MongoDB</span>
-              </div>
-            </div>
-            <h3 class="project-title">Food App — E-Commerce</h3>
-            <p class="project-desc">Food ordering platform with payment processing, built with React, Express, and MongoDB.</p>
-            <a href="https://food-ecommerce-frontend.onrender.com" target="_blank" class="project-link">Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-          </div>
-        </div>
-
-        <!-- JI Consulting -->
-        <div class="project-card reveal" style="transition-delay:0.2s">
-          <div class="project-media">
-            <img src="./JI Consulting.png" alt="JI Consulting Services — Responsive business website" loading="lazy" />
-            <div class="project-media-overlay">
-              <a href="https://nextwebi.netlify.app/" target="_blank" class="project-visit-btn">View Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-meta">
-              <span class="project-index">03</span>
-              <div class="project-techs">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">HTML/CSS</span>
-              </div>
-            </div>
-            <h3 class="project-title">JI Consulting Services</h3>
-            <p class="project-desc">Responsive business website for a consulting firm, ensuring cross-device performance.</p>
-            <a href="https://nextwebi.netlify.app/" target="_blank" class="project-link">Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-          </div>
-        </div>
-
-        <!-- College Website -->
-        <div class="project-card reveal" style="transition-delay:0.25s">
-          <div class="project-media">
-            <img src="./Raja VTC.png" alt="Raja VTC College Website — Bootstrap responsive college website" loading="lazy" />
-            <div class="project-media-overlay">
-              <a href="https://rajavtc.in" target="_blank" class="project-visit-btn">View Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-meta">
-              <span class="project-index">04</span>
-              <div class="project-techs">
-                <span class="tech-tag">Bootstrap</span>
-                <span class="tech-tag">Responsive</span>
-              </div>
-            </div>
-            <h3 class="project-title">College Website</h3>
-            <p class="project-desc">Responsive college website with clean UI and cross-device compatibility using Bootstrap.</p>
-            <a href="https://rajavtc.in" target="_blank" class="project-link">Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-          </div>
-        </div>
-
-        <!-- Urpan Technologies -->
-        <div class="project-card reveal" style="transition-delay:0.3s">
-          <div class="project-media">
-            <img src="./Urpan.png" alt="Urpan Technologies Website" />
-            <div class="project-media-overlay">
-              <a href="https://urpantech.com" target="_blank" class="project-visit-btn">View Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-meta">
-              <span class="project-index">05</span>
-              <div class="project-techs">
-                <span class="tech-tag">Bootstrap</span>
-                <span class="tech-tag">Google App Script</span>
-              </div>
-            </div>
-            <h3 class="project-title">Urpan Technologies</h3>
-            <p class="project-desc">Clean corporate interface, responsive layout, and smooth user experience aligned with modern web standards.</p>
-            <a href="https://urpantech.com" target="_blank" class="project-link">Live <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-          </div>
-        </div>
-
-        <!-- Insight Intelli -->
-        <div class="project-card project-featured reveal" style="transition-delay:0.32s">
-          <div class="project-media">
-            <img src="./Insight Intelli.png" alt="Insight Intelli — AI-powered analytics intelligence dashboard" loading="lazy" />
-            <div class="project-media-overlay">
-              <a href="https://insightintelli.com" target="_blank" class="project-visit-btn">
-                View Project
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-meta">
-              <span class="project-index">07 · AI / ML</span>
-              <div class="project-techs">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">AI/ML</span>
-                <span class="tech-tag">Analytics</span>
-              </div>
-            </div>
-            <h3 class="project-title">🤖 Insight Intelli</h3>
-            <p class="project-desc">
-              An AI-powered analytics intelligence platform that delivers smart data insights through
-              interactive dashboards. Built with React and Python, it leverages machine learning to
-              surface actionable business intelligence in real time.
-            </p>
-            <a href="#" target="_blank" class="project-link">
-              View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            <a class="btn btn-ghost" href="./JOHN%20SAHAYA%20INFANT%20J.pdf" download>
+              <svg class="i"><use href="#i-download"/></svg>
+              Download CV
             </a>
+            <div class="hero-socials">
+              <a class="icon-btn" href="https://github.com/johninfant021?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+              <a class="icon-btn" href="https://www.linkedin.com/in/john-infant-j-6728a7244/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
+              <a class="icon-btn" href="https://www.instagram.com/john_infant__/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#i-instagram"/></svg></a>
+            </div>
           </div>
         </div>
 
-        <!-- Alexa Skill -->
-        <div class="project-card project-alexa reveal" style="transition-delay:0.38s">
-          <div class="project-media">
-            <img src="./alexa project.png" alt="RRC Info Alexa Skill — Voice-assisted college information skill built with Python" loading="lazy" />
-            <div class="project-media-overlay">
-              <a href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard" target="_blank" class="project-visit-btn">Amazon Console <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-meta">
-              <span class="project-index">08 · Voice AI</span>
-              <div class="project-techs">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Alexa SDK</span>
-                <span class="tech-tag">Voice AI</span>
-              </div>
-            </div>
-            <h3 class="project-title">RRC Info — Alexa Skill</h3>
-            <p class="project-desc">
-              A voice-assisted Amazon Alexa skill built with Python providing Rajapalayam Raju's College
-              information through natural language queries via the Alexa Skills Kit.
-            </p>
-            <a href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard" target="_blank" class="project-link">Amazon Console <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-          </div>
+        <div class="hero-visual reveal" style="--d:.2s">
+          <figure class="portrait">
+            <picture>
+              <source srcset="./assets/john.webp" type="image/webp" />
+              <img src="./john pic.jpeg" alt="Portrait of John Sahaya Infant J" width="512" height="683" fetchpriority="high" />
+            </picture>
+            <figcaption class="portrait-card">
+              <span class="portrait-label"><span class="pulse-dot"></span>Currently</span>
+              <span class="portrait-role">Website Developer</span>
+              <span class="portrait-co">@ Vimtra Ventures</span>
+            </figcaption>
+          </figure>
+          <span class="float-chip chip-a"><i style="--c:#61dafb"></i>React</span>
+          <span class="float-chip chip-b"><i style="--c:#3c873a"></i>Node.js</span>
+          <span class="float-chip chip-c"><i style="--c:#00ed64"></i>MongoDB</span>
         </div>
+      </div>
 
+      <div class="container">
+        <dl class="hero-meta reveal" style="--d:.32s">
+          <div><dt>Based in</dt><dd>Tamil Nadu, India</dd></div>
+          <div><dt>Local time</dt><dd><span data-clock>--:--</span> IST</dd></div>
+          <div><dt>Focus</dt><dd>React · Node · MongoDB</dd></div>
+          <div class="hero-scroll"><dt>Explore</dt><dd><a href="#about">Scroll down <svg class="i"><use href="#i-arrow-right"/></svg></a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Tech marquee -->
+    <div class="marquee" aria-label="Technologies I use">
+      <div class="marquee-track">
+        <ul>
+          <li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>JavaScript</li><li>Tailwind CSS</li><li>REST APIs</li><li>Python</li><li>MySQL</li><li>Git</li><li>Netlify</li><li>Render</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>JavaScript</li><li>Tailwind CSS</li><li>REST APIs</li><li>Python</li><li>MySQL</li><li>Git</li><li>Netlify</li><li>Render</li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════
-       EDUCATION
-  ═══════════════════════════════════════════════ -->
-  <section id="education">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Academic Journey</span>
-        <h2 class="section-title">Education</h2>
+    <!-- ═══════════════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════════════ -->
+    <section id="about" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow"><span>01</span>About</span>
+          <h2 class="section-title">Building the future, <em>one line at a time.</em></h2>
+        </header>
+
+        <div class="bento about-bento">
+          <article class="card about-intro reveal">
+            <p class="about-lead">
+              I'm a <strong>Computer Science graduate</strong> with a passion for building impactful,
+              user-centric applications — currently pursuing my MCA at Kalasalingam University.
+            </p>
+            <p class="about-body">
+              With hands-on experience in MERN stack development, database design, and modern web architecture,
+              I solve real-world problems with polished interfaces and stable backend systems.
+              I'm a self-driven learner who thrives in environments that challenge me to grow.
+            </p>
+            <ul class="tags">
+              <li>React JS</li><li>Node JS</li><li>Express JS</li><li>MongoDB</li><li>Python</li>
+              <li>SQL</li><li>Alexa Skills</li><li>Responsive Design</li><li>REST APIs</li>
+            </ul>
+          </article>
+
+          <article class="card about-now reveal" style="--d:.06s">
+            <span class="card-label"><span class="pulse-dot"></span>Now</span>
+            <h3 class="card-title">Website Developer &amp; Cross Functional Executive</h3>
+            <p class="card-text">at <strong>Vimtra Ventures</strong> · since Oct 2025</p>
+          </article>
+
+          <article class="card about-open reveal" style="--d:.12s">
+            <span class="card-label">Open to</span>
+            <ul class="check-list">
+              <li><svg class="i"><use href="#i-check"/></svg>Full-time roles</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Freelance projects</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Interesting collaborations</li>
+            </ul>
+          </article>
+
+          <article class="card stat-card about-s1 reveal">
+            <span class="stat-num"><span data-count="7">7</span><sup>+</sup></span>
+            <span class="stat-label">Projects shipped</span>
+          </article>
+          <article class="card stat-card about-s2 reveal" style="--d:.06s">
+            <span class="stat-num"><span data-count="3">3</span><sup>+</sup></span>
+            <span class="stat-label">Years building</span>
+          </article>
+          <article class="card stat-card about-s3 reveal" style="--d:.12s">
+            <span class="stat-num"><span data-count="8.21" data-decimals="2">8.21</span></span>
+            <span class="stat-label">MCA CGPA (Sem 1)</span>
+          </article>
+
+          <article class="card about-loc reveal" style="--d:.18s">
+            <div class="loc-orb" aria-hidden="true"><span></span></div>
+            <span class="card-label"><svg class="i"><use href="#i-pin"/></svg>Location</span>
+            <h3 class="card-title">Tamil Nadu, India</h3>
+            <p class="card-text mono"><span data-clock>--:--</span> · UTC+05:30</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="edu-timeline">
+    <!-- ═══════════════════════════════════════════════
+         SKILLS
+    ═══════════════════════════════════════════════ -->
+    <section id="skills" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow"><span>02</span>Skills</span>
+          <h2 class="section-title">The stack I <em>build with.</em></h2>
+        </header>
 
-        <div class="edu-item reveal" style="transition-delay:0.1s">
-          <div class="edu-timeline-dot">
-            <div class="dot-inner"></div>
-          </div>
-          <div class="edu-card glass-card">
-            <div class="edu-card-top">
-              <div class="edu-year-badge">2024 – 2026</div>
-              <span class="edu-status active-status">Ongoing</span>
+        <div class="bento skills-bento">
+          <article class="card skill-mern reveal">
+            <span class="card-label">Primary focus</span>
+            <h3 class="card-title-lg">MERN Stack</h3>
+            <div class="mern-tiles">
+              <div class="mern-tile" style="--c:#00ed64"><b>M</b><span>MongoDB</span><small>Database</small></div>
+              <div class="mern-tile" style="--c:#a1a1aa"><b>E</b><span>Express</span><small>API layer</small></div>
+              <div class="mern-tile" style="--c:#61dafb"><b>R</b><span>React</span><small>Interface</small></div>
+              <div class="mern-tile" style="--c:#5fa04e"><b>N</b><span>Node.js</span><small>Runtime</small></div>
             </div>
-            <h3 class="edu-institution">Kalasalingam University</h3>
+            <p class="card-text">
+              Building premium web applications with a clear focus on MERN technologies, clean architecture,
+              and responsive user experiences.
+            </p>
+          </article>
+
+          <article class="card skill-front reveal" style="--d:.06s">
+            <span class="card-label">Frontend</span>
+            <ul class="chips">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React JS</li><li>Tailwind CSS</li><li>Bootstrap</li><li>jQuery</li><li>UI/UX</li>
+            </ul>
+          </article>
+
+          <article class="card skill-back reveal" style="--d:.12s">
+            <span class="card-label">Backend</span>
+            <ul class="chips">
+              <li>Node JS</li><li>Express JS</li><li>MongoDB</li><li>MySQL</li><li>REST API</li><li>Python</li>
+            </ul>
+          </article>
+
+          <article class="card skill-tools reveal">
+            <span class="card-label">Deployment &amp; Tools</span>
+            <ul class="chips">
+              <li>Netlify</li><li>Render</li><li>GoDaddy</li><li>Hostinger</li><li>Git</li><li>Postman</li><li>MS Office</li>
+            </ul>
+          </article>
+
+          <article class="card skill-py reveal" style="--d:.06s">
+            <span class="card-label">Secondary</span>
+            <h3 class="card-title">Python</h3>
+            <p class="card-text">Used selectively for automation, analytics and voice apps with the Alexa Skills Kit.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         PROJECTS
+    ═══════════════════════════════════════════════ -->
+    <section id="projects" class="section">
+      <div class="container">
+        <header class="section-head section-head--row reveal">
+          <div>
+            <span class="eyebrow"><span>03</span>Selected work</span>
+            <h2 class="section-title">Things I've <em>shipped.</em></h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-filter="fullstack" aria-pressed="false">Full-stack</button>
+            <button type="button" class="filter" data-filter="web" aria-pressed="false">Websites</button>
+            <button type="button" class="filter" data-filter="ai" aria-pressed="false">AI &amp; Voice</button>
+          </div>
+        </header>
+
+        <div class="work-grid">
+
+          <!-- Hiking Gear -->
+          <article class="card work-card work-card--wide reveal" data-cat="fullstack" style="--vt:work-1">
+            <a class="work-media" href="https://hikepro-gear.netlify.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">hikepro-gear.netlify.app</span></span>
+              <img src="./assets/work/hikepro-1600.webp" srcset="./assets/work/hikepro-800.webp 800w, ./assets/work/hikepro-1600.webp 1600w" sizes="(min-width: 1024px) 720px, 100vw" alt="Hiking Gear Website — MERN Stack adventure gear e-commerce platform" width="1600" height="765" loading="lazy" decoding="async" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span class="work-index">01</span><span class="work-kind">Featured · Full-stack</span></div>
+              <h3 class="work-title">Hiking Gear Website</h3>
+              <p class="work-desc">
+                A fully responsive adventure gear platform built with the MERN stack. Features secure
+                authentication, smooth scroll animations, dynamic carousels, and an engaging UI with
+                Blog, Contributors, and Contact sections.
+              </p>
+              <ul class="tags"><li>React</li><li>Node JS</li><li>MongoDB</li><li>Auth</li></ul>
+              <a class="work-link" href="https://hikepro-gear.netlify.app/" target="_blank" rel="noopener">Visit live site <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Food App -->
+          <article class="card work-card reveal" data-cat="fullstack" style="--vt:work-2">
+            <a class="work-media" href="https://food-ecommerce-frontend.onrender.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">food-ecommerce-frontend.onrender.com</span></span>
+              <img src="./assets/work/food-app-800.webp" srcset="./assets/work/food-app-800.webp 800w, ./assets/work/food-app-1600.webp 1600w" sizes="(min-width: 1024px) 560px, 100vw" alt="Food App — MERN Stack e-commerce food ordering platform" width="800" height="360" loading="lazy" decoding="async" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span class="work-index">02</span><span class="work-kind">Full-stack</span></div>
+              <h3 class="work-title">Food App — E-Commerce</h3>
+              <p class="work-desc">Food ordering platform with payment processing, built with React, Express, and MongoDB.</p>
+              <ul class="tags"><li>React</li><li>Express</li><li>MongoDB</li></ul>
+              <a class="work-link" href="https://food-ecommerce-frontend.onrender.com" target="_blank" rel="noopener">Visit live site <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <!-- JI Consulting -->
+          <article class="card work-card reveal" data-cat="web" style="--vt:work-3; --d:.06s">
+            <a class="work-media" href="https://nextwebi.netlify.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">nextwebi.netlify.app</span></span>
+              <img src="./assets/work/ji-consulting-800.webp" srcset="./assets/work/ji-consulting-800.webp 800w, ./assets/work/ji-consulting-1600.webp 1600w" sizes="(min-width: 1024px) 560px, 100vw" alt="JI Consulting Services — Responsive business website" width="800" height="365" loading="lazy" decoding="async" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span class="work-index">03</span><span class="work-kind">Website</span></div>
+              <h3 class="work-title">JI Consulting Services</h3>
+              <p class="work-desc">Responsive business website for a consulting firm, ensuring cross-device performance.</p>
+              <ul class="tags"><li>React</li><li>HTML/CSS</li></ul>
+              <a class="work-link" href="https://nextwebi.netlify.app/" target="_blank" rel="noopener">Visit live site <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Insight Intelli -->
+          <article class="card work-card work-card--wide work-card--flip reveal" data-cat="fullstack ai" style="--vt:work-4">
+            <a class="work-media" href="https://insightintelli.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">insightintelli.com</span></span>
+              <img src="./assets/work/insight-intelli-1600.webp" srcset="./assets/work/insight-intelli-800.webp 800w, ./assets/work/insight-intelli-1600.webp 1600w" sizes="(min-width: 1024px) 720px, 100vw" alt="Insight Intelli — AI-powered analytics intelligence dashboard" width="1600" height="757" loading="lazy" decoding="async" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span class="work-index">04</span><span class="work-kind">Featured · AI / ML</span></div>
+              <h3 class="work-title">Insight Intelli</h3>
+              <p class="work-desc">
+                An AI-powered analytics intelligence platform that delivers smart data insights through
+                interactive dashboards. Built with React and Python, it leverages machine learning to
+                surface actionable business intelligence in real time.
+              </p>
+              <ul class="tags"><li>React</li><li>Python</li><li>AI/ML</li><li>Analytics</li></ul>
+              <a class="work-link" href="https://insightintelli.com" target="_blank" rel="noopener">View project <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <!-- College Website -->
+          <article class="card work-card reveal" data-cat="web" style="--vt:work-5">
+            <a class="work-media" href="https://rajavtc.in" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">rajavtc.in</span></span>
+              <img src="./assets/work/raja-vtc-800.webp" srcset="./assets/work/raja-vtc-800.webp 800w, ./assets/work/raja-vtc-1600.webp 1600w" sizes="(min-width: 1024px) 560px, 100vw" alt="Raja VTC College Website — Bootstrap responsive college website" width="800" height="366" loading="lazy" decoding="async" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span class="work-index">05</span><span class="work-kind">Website</span></div>
+              <h3 class="work-title">College Website</h3>
+              <p class="work-desc">Responsive college website with clean UI and cross-device compatibility using Bootstrap.</p>
+              <ul class="tags"><li>Bootstrap</li><li>Responsive</li></ul>
+              <a class="work-link" href="https://rajavtc.in" target="_blank" rel="noopener">Visit live site <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Urpan Technologies -->
+          <article class="card work-card reveal" data-cat="web" style="--vt:work-6; --d:.06s">
+            <a class="work-media" href="https://urpantech.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">urpantech.com</span></span>
+              <img src="./assets/work/urpan-800.webp" srcset="./assets/work/urpan-800.webp 800w, ./assets/work/urpan-1600.webp 1600w" sizes="(min-width: 1024px) 560px, 100vw" alt="Urpan Technologies Website" width="800" height="385" loading="lazy" decoding="async" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span class="work-index">06</span><span class="work-kind">Website</span></div>
+              <h3 class="work-title">Urpan Technologies</h3>
+              <p class="work-desc">Clean corporate interface, responsive layout, and smooth user experience aligned with modern web standards.</p>
+              <ul class="tags"><li>Bootstrap</li><li>Google App Script</li></ul>
+              <a class="work-link" href="https://urpantech.com" target="_blank" rel="noopener">Visit live site <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Alexa Skill -->
+          <article class="card work-card work-card--wide reveal" data-cat="ai" style="--vt:work-7">
+            <a class="work-media" href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">developer.amazon.com/alexa</span></span>
+              <img src="./assets/work/alexa-rrc-1600.webp" srcset="./assets/work/alexa-rrc-800.webp 800w, ./assets/work/alexa-rrc-1600.webp 1600w" sizes="(min-width: 1024px) 720px, 100vw" alt="RRC Info Alexa Skill — Voice-assisted college information skill built with Python" width="1600" height="710" loading="lazy" decoding="async" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span class="work-index">07</span><span class="work-kind">Voice AI</span></div>
+              <h3 class="work-title">RRC Info — Alexa Skill</h3>
+              <p class="work-desc">
+                A voice-assisted Amazon Alexa skill built with Python providing Rajapalayam Raju's College
+                information through natural language queries via the Alexa Skills Kit.
+              </p>
+              <ul class="tags"><li>Python</li><li>Alexa SDK</li><li>Voice AI</li></ul>
+              <a class="work-link" href="https://developer.amazon.com/alexa/console/ask/build/custom/amzn1.ask.skill.2ee4f613-0abb-4908-90af-69def49223dc/development/en_US/dashboard" target="_blank" rel="noopener">Amazon Console <svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="work-more reveal">
+          <a class="btn btn-ghost" href="https://github.com/johninfant021?tab=repositories" target="_blank" rel="noopener">
+            <svg class="i"><use href="#i-github"/></svg>
+            More on GitHub
+            <svg class="i"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         EXPERIENCE
+    ═══════════════════════════════════════════════ -->
+    <section id="experience" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow"><span>04</span>Experience</span>
+          <h2 class="section-title">Where I've <em>worked.</em></h2>
+        </header>
+
+        <ol class="timeline">
+          <li class="tl-item reveal">
+            <div class="tl-when">
+              <span class="mono">10/2025 — Present</span>
+              <span class="pill pill-live"><span class="pulse-dot"></span>Current</span>
+            </div>
+            <div class="tl-body">
+              <div class="tl-head">
+                <span class="tl-logo" aria-hidden="true">V</span>
+                <div>
+                  <h3 class="tl-company">Vimtra Ventures</h3>
+                  <p class="tl-role">Website Developer &amp; Cross Functional Executive</p>
+                </div>
+              </div>
+              <p class="tl-desc">
+                Developed and maintained responsive corporate websites using React.js, HTML5, CSS3,
+                JavaScript, and Tailwind CSS. Optimized website performance, improved mobile responsiveness,
+                and delivered polished UI enhancements.
+              </p>
+              <ul class="tags"><li>React.js</li><li>Tailwind CSS</li><li>JavaScript</li><li>Responsive UI</li><li>Content Management</li></ul>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-when">
+              <span class="mono">12/2024 — 05/2025</span>
+              <span class="pill">Internship</span>
+            </div>
+            <div class="tl-body">
+              <div class="tl-head">
+                <span class="tl-logo" aria-hidden="true">I</span>
+                <div>
+                  <h3 class="tl-company">IPCS Global</h3>
+                  <p class="tl-role">MERN Stack Intern</p>
+                </div>
+              </div>
+              <p class="tl-desc">
+                Developed full-stack applications with MongoDB, Express.js, React.js, and Node.js.
+                Built and integrated RESTful APIs, performed Postman API testing, and implemented
+                responsive UI designs to improve application performance.
+              </p>
+              <ul class="tags"><li>MERN Stack</li><li>REST APIs</li><li>Postman</li><li>Git &amp; GitHub</li><li>Performance</li></ul>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <div class="tl-when">
+              <span class="mono">04/2024 — 11/2024</span>
+            </div>
+            <div class="tl-body">
+              <div class="tl-head">
+                <span class="tl-logo" aria-hidden="true">R</span>
+                <div>
+                  <h3 class="tl-company">Raja Vocational Training Centre</h3>
+                  <p class="tl-role">Digital Marketing Executive</p>
+                </div>
+              </div>
+              <p class="tl-desc">
+                Managed digital marketing campaigns, developed promotional materials, and improved online
+                engagement through targeted content strategies. Supported website content management
+                and branding activities using Canva.
+              </p>
+              <ul class="tags"><li>Digital Marketing</li><li>Canva</li><li>Content Strategy</li><li>Campaign Management</li><li>Branding</li></ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         EDUCATION
+    ═══════════════════════════════════════════════ -->
+    <section id="education" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow"><span>05</span>Education</span>
+          <h2 class="section-title">Academic <em>journey.</em></h2>
+        </header>
+
+        <div class="edu-grid">
+          <article class="card edu-card reveal">
+            <div class="edu-top"><span class="mono">2024 — 2026</span><span class="pill pill-live">Ongoing</span></div>
+            <h3 class="edu-school">Kalasalingam University</h3>
             <p class="edu-degree">Master of Computer Applications · Online</p>
-            <div class="edu-score">
-              <span class="score-label">Sem 1 CGPA</span>
-              <span class="score-val">8.21</span>
-            </div>
-          </div>
-        </div>
+            <div class="edu-score"><span>Sem 1 CGPA</span><strong>8.21</strong></div>
+          </article>
 
-        <div class="edu-item reveal" style="transition-delay:0.2s">
-          <div class="edu-timeline-dot">
-            <div class="dot-inner"></div>
-          </div>
-          <div class="edu-card glass-card">
-            <div class="edu-card-top">
-              <div class="edu-year-badge">2020 – 2023</div>
-              <span class="edu-status">Completed</span>
-            </div>
-            <h3 class="edu-institution">Rajapalayam Raju's College</h3>
+          <article class="card edu-card reveal" style="--d:.06s">
+            <div class="edu-top"><span class="mono">2020 — 2023</span><span class="pill">Completed</span></div>
+            <h3 class="edu-school">Rajapalayam Raju's College</h3>
             <p class="edu-degree">Bachelor of Computer Science</p>
-            <div class="edu-score">
-              <span class="score-label">CGPA</span>
-              <span class="score-val">7.97</span>
-            </div>
-          </div>
-        </div>
+            <div class="edu-score"><span>CGPA</span><strong>7.97</strong></div>
+          </article>
 
-        <div class="edu-item reveal" style="transition-delay:0.3s">
-          <div class="edu-timeline-dot">
-            <div class="dot-inner"></div>
-          </div>
-          <div class="edu-card glass-card">
-            <div class="edu-card-top">
-              <div class="edu-year-badge">HSC · 2020</div>
-              <span class="edu-status">Completed</span>
-            </div>
-            <h3 class="edu-institution">P.A.C.M Higher Secondary School</h3>
+          <article class="card edu-card reveal" style="--d:.12s">
+            <div class="edu-top"><span class="mono">HSC · 2020</span><span class="pill">Completed</span></div>
+            <h3 class="edu-school">P.A.C.M Higher Secondary School</h3>
             <p class="edu-degree">Higher Secondary Certificate · Rajapalayam</p>
-            <div class="edu-score">
-              <span class="score-label">Score</span>
-              <span class="score-val">69%</span>
-            </div>
-          </div>
-        </div>
+            <div class="edu-score"><span>Score</span><strong>69%</strong></div>
+          </article>
 
-        <div class="edu-item reveal" style="transition-delay:0.4s">
-          <div class="edu-timeline-dot">
-            <div class="dot-inner"></div>
-          </div>
-          <div class="edu-card glass-card">
-            <div class="edu-card-top">
-              <div class="edu-year-badge">SSLC · 2018</div>
-              <span class="edu-status">Completed</span>
-            </div>
-            <h3 class="edu-institution">P.A.C.M Higher Secondary School</h3>
+          <article class="card edu-card reveal" style="--d:.18s">
+            <div class="edu-top"><span class="mono">SSLC · 2018</span><span class="pill">Completed</span></div>
+            <h3 class="edu-school">P.A.C.M Higher Secondary School</h3>
             <p class="edu-degree">Secondary School Leaving Certificate · Rajapalayam</p>
-            <div class="edu-score">
-              <span class="score-label">Score</span>
-              <span class="score-val">86%</span>
-            </div>
-          </div>
+            <div class="edu-score"><span>Score</span><strong>86%</strong></div>
+          </article>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════
-       EXPERIENCE / INTERNSHIP
-  ═══════════════════════════════════════════════ -->
-  <section id="experience">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Work Experience</span>
-        <h2 class="section-title">Experience &amp; <em>Internships</em></h2>
-      </div>
+    <!-- ═══════════════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════════════ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow"><span>06</span>Contact</span>
+          <h2 class="section-title">Let's build something <em>great together.</em></h2>
+        </header>
 
-      <div class="exp-grid">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <p class="contact-intro">
+              I'm open to full-time roles, freelance projects, and interesting collaborations.
+              If you have something in mind, drop me a message — I reply within 24 hours.
+            </p>
 
-        <div class="exp-card glass-card reveal" style="transition-delay:0.1s">
-          <div class="exp-header">
-            <div class="exp-company-logo">V</div>
-            <div>
-              <h3 class="exp-company">Vimtra Ventures</h3>
-              <p class="exp-role">Website Developer & Cross Functional Executive</p>
+            <div class="email-box">
+              <a class="email-link" href="mailto:johninfant021@gmail.com">johninfant021@gmail.com</a>
+              <button class="btn btn-ghost btn-sm" type="button" data-copy="johninfant021@gmail.com">
+                <svg class="i"><use href="#i-copy"/></svg>Copy
+              </button>
             </div>
-            <span class="exp-type">10/2025 – Present</span>
+
+            <ul class="contact-list">
+              <li><a href="tel:+918220192109"><svg class="i"><use href="#i-phone"/></svg><span class="cl-label">Phone</span><span class="cl-val">+91 82201 92109</span><svg class="i cl-arrow"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://www.linkedin.com/in/john-infant-j-6728a7244/" target="_blank" rel="noopener"><svg class="i"><use href="#i-linkedin"/></svg><span class="cl-label">LinkedIn</span><span class="cl-val">john-infant-j</span><svg class="i cl-arrow"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://github.com/johninfant021" target="_blank" rel="noopener"><svg class="i"><use href="#i-github"/></svg><span class="cl-label">GitHub</span><span class="cl-val">@johninfant021</span><svg class="i cl-arrow"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://www.instagram.com/john_infant__/" target="_blank" rel="noopener"><svg class="i"><use href="#i-instagram"/></svg><span class="cl-label">Instagram</span><span class="cl-val">@john_infant__</span><svg class="i cl-arrow"><use href="#i-arrow"/></svg></a></li>
+            </ul>
           </div>
-          <p class="exp-desc">
-            Developed and maintained responsive corporate websites using React.js, HTML5, CSS3,
-            JavaScript, and Tailwind CSS. Optimized website performance, improved mobile responsiveness,
-            and delivered polished UI enhancements.
-          </p>
-          <div class="exp-tech-list">
-            <span class="chip">React.js</span>
-            <span class="chip">Tailwind CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">Responsive UI</span>
-            <span class="chip">Content Management</span>
-          </div>
-        </div>
 
-        <div class="exp-card glass-card reveal" style="transition-delay:0.2s">
-          <div class="exp-header">
-            <div class="exp-company-logo">I</div>
-            <div>
-              <h3 class="exp-company">IPCS Global</h3>
-              <p class="exp-role">MERN Stack Intern</p>
-            </div>
-            <span class="exp-type">12/2024 – 05/2025</span>
-          </div>
-          <p class="exp-desc">
-            Developed full-stack applications with MongoDB, Express.js, React.js, and Node.js.
-            Built and integrated RESTful APIs, performed Postman API testing, and implemented
-            responsive UI designs to improve application performance.
-          </p>
-          <div class="exp-tech-list">
-            <span class="chip">MERN Stack</span>
-            <span class="chip">REST APIs</span>
-            <span class="chip">Postman</span>
-            <span class="chip">Git & GitHub</span>
-            <span class="chip">Performance</span>
-          </div>
-        </div>
-
-        <div class="exp-card glass-card reveal" style="transition-delay:0.3s">
-          <div class="exp-header">
-            <div class="exp-company-logo">R</div>
-            <div>
-              <h3 class="exp-company">Raja Vocational Training Centre</h3>
-              <p class="exp-role">Digital Marketing Executive</p>
-            </div>
-            <span class="exp-type">04/2024 – 11/2024</span>
-          </div>
-          <p class="exp-desc">
-            Managed digital marketing campaigns, developed promotional materials, and improved online
-            engagement through targeted content strategies. Supported website content management
-            and branding activities using Canva.
-          </p>
-          <div class="exp-tech-list">
-            <span class="chip">Digital Marketing</span>
-            <span class="chip">Canva</span>
-            <span class="chip">Content Strategy</span>
-            <span class="chip">Campaign Management</span>
-            <span class="chip">Branding</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       CONTACT
-  ═══════════════════════════════════════════════ -->
-  <section id="contact">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Let's Connect</span>
-        <h2 class="section-title">Get in <em>Touch</em></h2>
-      </div>
-
-      <div class="contact-grid">
-
-        <!-- Left: Contact Info -->
-        <div class="contact-left reveal" style="transition-delay:0.1s">
-          <p class="contact-intro">
-            I'm open to full-time roles, freelance projects, and interesting collaborations.
-            If you have something in mind, drop me a message — I reply within 24 hours.
-          </p>
-
-          <div class="contact-links">
-            <a class="contact-link-item" href="tel:+918220192109">
-              <div class="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.27 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.27a16 16 0 0 0 5.82 5.82l1.63-1.63a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div class="contact-link-text">
-                <span class="contact-link-label">Phone</span>
-                <span class="contact-link-val">+91 82201 92109</span>
-              </div>
-            </a>
-
-            <a class="contact-link-item" href="mailto:johninfant021@gmail.com">
-              <div class="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div class="contact-link-text">
-                <span class="contact-link-label">Email</span>
-                <span class="contact-link-val">johninfant021@gmail.com</span>
-              </div>
-            </a>
-
-            <a class="contact-link-item" href="https://www.linkedin.com/in/john-infant-j-6728a7244/" target="_blank">
-              <div class="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </div>
-              <div class="contact-link-text">
-                <span class="contact-link-label">LinkedIn</span>
-                <span class="contact-link-val">john-infant-j-6728a7244</span>
-              </div>
-            </a>
-
-            <a class="contact-link-item" href="https://github.com/johninfant021" target="_blank">
-              <div class="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </div>
-              <div class="contact-link-text">
-                <span class="contact-link-label">GitHub</span>
-                <span class="contact-link-val">@johninfant021</span>
-              </div>
-            </a>
-
-            <a class="contact-link-item" href="https://www.instagram.com/john_infant__/" target="_blank">
-              <div class="contact-link-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </div>
-              <div class="contact-link-text">
-                <span class="contact-link-label">Instagram</span>
-                <span class="contact-link-val">@john_infant__</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: Form -->
-        <div class="contact-right reveal" style="transition-delay:0.2s">
-          <form class="contact-form" onsubmit="handleSubmit(event)" id="contactForm">
+          <form class="card contact-form reveal" id="contactForm" style="--d:.08s" novalidate>
             <div class="form-row">
-              <div class="form-field">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" placeholder="Jane Smith" required />
+              <div class="field">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
               </div>
-              <div class="form-field">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="jane@example.com" required />
+              <div class="field">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
               </div>
             </div>
-            <div class="form-field">
+            <div class="field">
               <label for="subject">Subject</label>
-              <input type="text" id="subject" placeholder="Let's collaborate on..." />
+              <input type="text" id="subject" name="subject" placeholder="Let's collaborate on…" />
             </div>
-            <div class="form-field">
+            <div class="field">
               <label for="message">Message</label>
-              <textarea id="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or opportunity…" required></textarea>
             </div>
-            <button type="submit" class="btn-submit" id="submitBtn">
-              <span>Send Message</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </button>
+            <div class="form-foot">
+              <p class="form-note" id="formNote">Opens your email app with the message ready to send.</p>
+              <button type="submit" class="btn btn-solid">
+                Send message
+                <svg class="i"><use href="#i-send"/></svg>
+              </button>
+            </div>
           </form>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <!-- ═══════════════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="footer-inner">
-      <a class="footer-logo" href="#home">John <span>Infant</span></a>
-
-      <ul class="footer-nav">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <p class="footer-copy">© 2026 John Infant J · Built with ❤️</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <p class="footer-cta">Have an idea? <a href="#contact">Let's talk <svg class="i"><use href="#i-arrow"/></svg></a></p>
+        <ul class="footer-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+        </ul>
+      </div>
+      <p class="footer-word" aria-hidden="true">John <em>Infant</em></p>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> John Sahaya Infant J</span>
+        <span class="mono">Tamil Nadu, IN · <span data-clock>--:--</span> IST</span>
+        <span>Press <kbd><span data-mod>Ctrl</span> K</kbd> to navigate</span>
+      </div>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
+  <!-- Back to Top -->
+  <a class="back-to-top" id="backToTop" href="#home" aria-label="Back to top">
+    <svg class="i"><use href="#i-arrow-up"/></svg>
+  </a>
 
-  <!-- ═══════════════════════════════════════════════
-       SCRIPTS
-  ═══════════════════════════════════════════════ -->
-  <script>
-    /* ── Particle Canvas ──────────────────────── */
-    const canvas = document.getElementById('particleCanvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let W, H;
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    function resizeCanvas() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    class Particle {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * W;
-        this.y = Math.random() * H;
-        this.r = Math.random() * 1.5 + 0.5;
-        this.vx = (Math.random() - 0.5) * 0.3;
-        this.vy = (Math.random() - 0.5) * 0.3;
-        this.alpha = Math.random() * 0.5 + 0.1;
-        this.color = Math.random() > 0.5 ? '139,92,246' : '6,182,212';
-      }
-      update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${this.color},${this.alpha})`;
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < 80; i++) particles.push(new Particle());
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach(p => { p.update(); p.draw(); });
-      // Connect nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx*dx + dy*dy);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(139,92,246,${0.08 * (1 - dist/100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
-
-    /* ── Custom Cursor ──────────────────────── */
-    const cursor     = document.getElementById('cursor');
-    const cursorRing = document.getElementById('cursorRing');
-    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top  = mouseY + 'px';
-    });
-
-    (function animateRing() {
-      ringX += (mouseX - ringX) * 0.1;
-      ringY += (mouseY - ringY) * 0.1;
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top  = ringY + 'px';
-      requestAnimationFrame(animateRing);
-    })();
-
-    document.querySelectorAll('a, button, .chip, .tag, .tech-tag').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('cursor-hover');
-        cursorRing.classList.add('ring-hover');
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('cursor-hover');
-        cursorRing.classList.remove('ring-hover');
-      });
-    });
-
-    /* ── Typing Effect ──────────────────────── */
-    const typedEl = document.getElementById('typedText');
-    if (typedEl) {
-      const texts = [
-        'MERN Stack Apps.',
-        'Scalable APIs.',
-        'Beautiful UIs.',
-        'Reliable Backend.',
-        'Real Solutions.'
-      ];
-      let textIndex = 0, charIndex = 0, isDeleting = false;
-
-      function typeEffect() {
-        const current = texts[textIndex];
-        if (isDeleting) {
-          typedEl.textContent = current.substring(0, charIndex--);
-        } else {
-          typedEl.textContent = current.substring(0, charIndex++);
-        }
-        let delay = isDeleting ? 60 : 100;
-        if (!isDeleting && charIndex === current.length + 1) {
-          delay = 1800; isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          textIndex = (textIndex + 1) % texts.length;
-          delay = 400;
-        }
-        setTimeout(typeEffect, delay);
-      }
-      setTimeout(typeEffect, 800);
-    }
-
-    /* ── Navbar Scroll ──────────────────────── */
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    /* ── Mobile Menu ────────────────────────── */
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
-
-    /* ── Reveal on Scroll ───────────────────── */
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    /* ── Skill Bars Animation ───────────────── */
-    const skillObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-            const w = bar.getAttribute('data-width');
-            setTimeout(() => { bar.style.width = w + '%'; }, 200);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const skillSection = document.querySelector('#skills');
-    if (skillSection) skillObserver.observe(skillSection);
-
-    /* ── Active Nav ─────────────────────────── */
-    const sections  = document.querySelectorAll('section[id]');
-    const navLinks  = document.querySelectorAll('.nav-link');
-    const navObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          const a = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-          if (a) a.classList.add('active');
-        }
-      });
-    }, { threshold: 0.4 });
-    sections.forEach(s => navObs.observe(s));
-
-    /* ── Back to Top ────────────────────────── */
-    const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      btt.classList.toggle('visible', window.scrollY > 400);
-    });
-    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    /* ── Contact Form ───────────────────────── */
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      btn.innerHTML = '<span>Sending…</span>';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = '<span>Message Sent ✓</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
-        btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-        btn.style.opacity = '1';
-        btn.disabled = false;
-      }, 1500);
-    }
-
-    /* ── Tilt Effect on Project Cards ───────── */
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        card.style.transform = `perspective(800px) rotateY(${x / 40}deg) rotateX(${-y / 40}deg) translateY(-6px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-  </script>
+  <!-- Command menu -->
+  <dialog class="cmdk" id="cmdk" aria-label="Command menu">
+    <div class="cmdk-panel">
+      <div class="cmdk-search">
+        <svg class="i"><use href="#i-search"/></svg>
+        <input id="cmdkInput" type="text" placeholder="Jump to a section or run a command…" autocomplete="off" spellcheck="false"
+               role="combobox" aria-expanded="true" aria-controls="cmdkList" aria-autocomplete="list" />
+        <kbd>Esc</kbd>
+      </div>
+      <ul class="cmdk-list" id="cmdkList" role="listbox" aria-label="Commands"></ul>
+      <div class="cmdk-foot">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+      </div>
+    </div>
+  </dialog>
 
 </body>
 </html>
